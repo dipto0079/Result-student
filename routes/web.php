@@ -17,10 +17,10 @@ use App\Http\Controllers\AddClassController;
 Route::get("/",HomeController::class)->name('home');
 Route::get("single-student/{id}",[HomeController::class,'singleStudent'])->name('student.single');
 
+
 Route::resource('students', StudentsController::class);
 Route::get("import-more",[StudentsController::class,'ImportFile'])->name('import.more');
 Route::post("import-more",[StudentsController::class,'Import'])->name('import.add');
-
 
 
 Route::resource('subject', SubjectController::class);
