@@ -71,8 +71,8 @@ class ReportController extends Controller
             );
             return back()->with($notification);
         }
-        return back()->with($notification);
-        //return redirect()->route('students.index')->with($notification);
+
+        return redirect()->route('home')->with($notification);
     }
 
 

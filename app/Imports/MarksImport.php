@@ -28,15 +28,16 @@ class MarksImport implements ToModel,WithHeadingRow,SkipsOnError,WithValidation,
         foreach($row as $k => $r){
             if ($k != 'student_id'){
                 $sub = Subject::select('id')->where('subjects', ucfirst($k))->first();
-
-               // dd($r);
                 $data['total_marks'] = $r;
                 $data['subject_id'] = $sub->id;
-                $data['student_id'] = $row['student_id'];
+                $data['student_id'] = round($row['student_id']);
                 $obj = new Report($data);
                 $obj->save();
+
+
             }
         }
+
 
         return $obj;
     }
