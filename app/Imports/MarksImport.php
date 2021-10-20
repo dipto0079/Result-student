@@ -25,10 +25,10 @@ class MarksImport implements ToModel,WithHeadingRow,SkipsOnError,WithValidation,
     {
         $data = [];
         $obj = new Report();
-        foreach($row as $k => $r){
-            if ($k != 'student_id'){
-                $sub = Subject::select('id')->where('subjects', ucfirst($k))->first();
-                $data['total_marks'] = $r;
+        foreach($row as $key => $value){
+            if ($key != 'student_id'){
+                $sub = Subject::select('id')->where('subjects', ucfirst($key))->first();
+                $data['total_marks'] = $value;
                 $data['subject_id'] = $sub->id;
                 $data['student_id'] = round($row['student_id']);
                 $obj = new Report($data);
