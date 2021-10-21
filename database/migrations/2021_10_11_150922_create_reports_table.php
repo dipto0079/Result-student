@@ -16,6 +16,7 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('subject_id');
+            $table->unsignedBigInteger('class_id');
             $table->decimal('total_marks');
             $table->timestamps();
 
@@ -24,6 +25,12 @@ class CreateReportsTable extends Migration
             $table->foreign("student_id")
                 ->references("id")
                 ->on('students')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+            $table->foreign("class_id")
+                ->references("id")
+                ->on('add_classes')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 

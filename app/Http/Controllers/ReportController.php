@@ -22,7 +22,6 @@ class ReportController extends Controller
     }
 
     public function store(Request $request){
-
         $a = Report::where('student_id',$request->student_id)->where('subject_id',$request->subject_id)->first();
         if (!empty($a)){
             $notification = array(
@@ -31,25 +30,16 @@ class ReportController extends Controller
             );
             return back()->with($notification);
         }
-
         for($i=0; $i < count($request->except('_token'));$i++){
             $save = Report::create ([
-                'student_id' => $request->subject_id[$i],
-                'subject_id' => $request->marks[$i],
-                'total_marks' => $request->student_id,
-//                'class_id' => $request->class_id,
+                'total_marks' => $request->total_marks[$i],
+                'subject_id' =>$request->subject_id[$i],
+                'student_id' => $request->student_id,
+                'class_id' => $request->class_id,
+
             ]);
         }
 
-
-
-
-
-//        $data= new Report;
-//        $data->student_id = $request->student_id;
-//        $data->subject_id = $request->subject_id;
-//        $data->total_marks = $request->total_marks;
-//       $save= $data->save();
         if ($save) {
             $notification = array(
                 'messege' => 'Successfully Add !!!',

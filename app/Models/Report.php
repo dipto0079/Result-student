@@ -12,6 +12,7 @@ class Report extends Model
         'total_marks',
         'subject_id',
         'student_id',
+        'class_id',
 
     ];
 

@@ -53,8 +53,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstname">{{__("Student Name")}}</label>
-                                        <select id="student"  name="student_id" class="selectpicker" >
-
+                                        <select id="student"  name="student_id"  >
+{{--                                            class="selectpicker"--}}
                                         </select>
                                     </div>
                                 </div>
