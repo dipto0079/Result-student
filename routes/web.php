@@ -32,6 +32,7 @@ Route::get("single-class/{id}",[AddClassController::class,'singleClass'])->name(
 Route::post("class-student",[AddClassController::class,'classStudent'])->name('clasStudent.add');
 
 Route::get("subject_add",[ReportController::class,'subjectAdd'])->name('subject.add');
+Route::get("selectstudent/{id}",[ReportController::class,'selectstudent'])->name('selectstudent');
 Route::get("Import-Report",[ReportController::class,'reportImport'])->name('Import.Report');
 Route::post("Import-add",[ReportController::class,'report'])->name('report.add');
 Route::post("add_subject",[ReportController::class,'store'])->name('add.subject');
